@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Name :"
+        android:textSize="30dp"
+        android:textColor="@android:color/black"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/dialogTextName"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dialogEditName"
+        android:layout_toRightOf="@id/dialogTextName"
+        android:ems="8"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:hint="Event Name"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dialogTextDate"
+        android:text="Enter Date :"
+        android:textColor="@android:color/black"
+        android:textSize="30dp"
+        android:layout_below="@id/dialogTextName"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:ems="8"
+        android:layout_below="@id/dialogEditName"
+        android:layout_toRightOf="@id/dialogTextDate"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        android:hint="Event Date"
+        android:id="@+id/dialogEditDate"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dialogTextDesc"
+        android:text="Enter Description :"
+        android:textColor="@android:color/black"
+        android:textSize="30dp"
+        android:layout_below="@id/dialogTextDate"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:ems="12"
+        android:layout_below="@id/dialogTextDesc"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:scrollbarStyle="insideInset"
+        android:id="@+id/dialogEditDesc"/>
+</RelativeLayout>

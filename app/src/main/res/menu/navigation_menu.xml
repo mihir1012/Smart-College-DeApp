@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/Grpnav1"><item android:id="@+id/nav_Home"
+        android:icon="@drawable/baseline_home_black_18dp"
+        android:title="Home"
+        />
+        <item android:id="@+id/nav_StudentInfo"
+            android:icon="@drawable/baseline_info_black_18dp"
+            android:title="Academics Info"
+            />
+        <item android:id="@+id/nav_FacultyInfo"
+            android:icon="@drawable/baseline_person_black_18dp"
+            android:title="Faculty Info"
+            />
+        <item android:id="@+id/nav_ClassGrp"
+            android:icon="@drawable/baseline_group_black_18dp"
+            android:title="Class"
+            /></group>
+    <group android:id="@+id/Grpnav2">
+        <item android:id="@+id/nav_Logout"
+            android:icon="@drawable/baseline_backspace_black_18dp"
+            android:title="Logout"
+            />
+    </group>
+
+
+</menu>

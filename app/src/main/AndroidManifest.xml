@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mihir1012.smartcollege">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning,AllowBackup">
+        <activity android:name=".AboutDev"></activity>
+        <activity android:name=".SettingsActivity" />
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ClubsInfo"
+            android:parentActivityName=".HomePageActivity" />
+        <activity
+            android:name=".Eventinfo"
+            android:parentActivityName=".HomePageActivity" />
+        <activity
+            android:name=".ClassGroup"
+            android:parentActivityName=".AboutInfo" />
+        <activity
+            android:name=".FacultyInfo"
+            android:parentActivityName=".AboutInfo" />
+        <activity
+            android:name=".AcademicsInfo"
+            android:parentActivityName=".AboutInfo" />
+        <activity
+            android:name=".AboutInfo"
+            android:parentActivityName=".HomePageActivity" />
+        <activity
+            android:name=".RegistrationActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".HomePageActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mihir1012.smartcollege.HomePageActivity" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mihir1012.smartcollege.MainActivity" />
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
