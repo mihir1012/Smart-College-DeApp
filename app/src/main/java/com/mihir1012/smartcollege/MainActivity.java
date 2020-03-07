@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString("Enrolment",EnrolmentNo.getText().toString());
                 editor.commit();
                 Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
-                intent.putExtra("message", EnrolmentNo.getText().toString());
+//                intent.putExtra("message", EnrolmentNo.getText().toString());
                 startActivity(intent);
                 Toast.makeText(getBaseContext(), "Login successful", Toast.LENGTH_SHORT).show();
                 finish();
@@ -104,8 +104,7 @@ public class MainActivity extends AppCompatActivity {
                                 editor.putString("Enrolment",EnrolmentNo.getText().toString());
                                 editor.commit();
                                 Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
-                                intent.putExtra("message", EnrolmentNo.getText().toString());
-
+//                                intent.putExtra("message", EnrolmentNo.getText().toString());
                                 startActivity(intent);
                                 Toast.makeText(getBaseContext(), "Login successful", Toast.LENGTH_SHORT).show();
                                 finish();

@@ -47,31 +47,35 @@ public class AboutInfo extends AppCompatActivity {
         setContentView(R.layout.activity_about_info);
         SetupToolbar();
         navigationView = findViewById(R.id.aboutInfoNavID);
-        Intent intent = getIntent();
-        String message = intent.getStringExtra("message");
         //setContentView(navigation_menu);
         Relative = findViewById(R.id.RelativeIfo);
         AboutName = findViewById(R.id.textViewNameAbout);
 
         pref = getSharedPreferences ("myPreferences", MODE_PRIVATE);
         if (!pref.getBoolean("LoggedIn", false)) {
-
             Intent Loginintent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(Loginintent);
             finish();
         } else {
-            if(pref.getString("Enrolment",message).equals("admin")){
+            if(pref.getString("Enrolment","0001").equals("0001")){
+                SharedPreferences.Editor editor= pref.edit();
+                editor.putBoolean("LoggedIn",false);
+                Intent Loginintent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(Loginintent);
+                finish();
+            }
+            else if(pref.getString("Enrolment","0001").equals("admin")){
                 EnrollName = "ADMINISTRATOR";
-                Enroll = message;
+                Enroll = "admin";
                 AboutName.setText(EnrollName);
             }
-            else if(pref.getString("Enrolment",message).contains("p")){
+            else if(pref.getString("Enrolment","0001").contains("p")){
                 EnrollName="prof";
-                Enroll = message;
+                Enroll = "prof";
             }
             else {
                 reff = FirebaseDatabase.getInstance().getReference().child("StudentInfo")
-                        .child(pref.getString("Enrolment", message));
+                        .child(pref.getString("Enrolment", "0001"));
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

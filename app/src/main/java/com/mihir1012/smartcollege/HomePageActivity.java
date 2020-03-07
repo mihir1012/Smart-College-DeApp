@@ -71,11 +71,15 @@ public class HomePageActivity extends AppCompatActivity {
         });
         t= findViewById(R.id.TextViewName);
         B= findViewById(R.id.buttonMap);
-        Intent intent= getIntent();
-        message = intent.getStringExtra("message");
+//        Intent intent= getIntent();
+//        message = intent.getStringExtra("message");
+        message = pref.getString("Enrolment","0001");
         if(message.equals("admin")){
             Enroll = message;
             t.setText(Enroll);
+        }
+        else if(message.contains("p")){
+            Reff = FirebaseDatabase.getInstance().getReference().child("ProfInfo");
         }
         else {
             Reff = FirebaseDatabase.getInstance().getReference().child("LoginStudent").child(message);
