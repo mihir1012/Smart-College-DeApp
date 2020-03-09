@@ -3,7 +3,9 @@ package com.mihir1012.smartcollege;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.ContactsContract;
 import android.renderscript.Script;
 import android.util.Log;
@@ -72,7 +74,8 @@ public class RegistrationActivity extends AppCompatActivity {
         reff = FirebaseDatabase.getInstance().getReference().child("StudentInfo");
         reference = FirebaseDatabase.getInstance().getReference().child("LoginStudent");//.child(Enroll.getText().toString());
     }
-    public void RegisterHello(View view){
+
+    public void RegisterHello(View view) {
         Toast.makeText(RegistrationActivity.this,"Hello",Toast.LENGTH_SHORT).show();
         Long Eaa = Long.parseLong(Enroll.getText().toString());
         Stuinfo.setEnrolmentStudent(Eaa);
@@ -89,5 +92,18 @@ public class RegistrationActivity extends AppCompatActivity {
         logStu.setNameStudent(NameStu.getText().toString().trim());
         reference.child(Enroll.getText().toString().trim()).setValue(logStu);
         Toast.makeText(RegistrationActivity.this,"Registration Successful",Toast.LENGTH_SHORT).show();
+
+        Handler handler= new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(!Enroll.equals("") && !NameStu.equals("") && !Email.equals("") && !year.equals("") && !branchString.equals("") && !Contact.equals("") && !AOI.equals("") ) {
+                    Intent homepageintent = new Intent(getApplicationContext(), HomePageActivity.class);
+                    startActivity(homepageintent);
+                    finish();
+                }
+            }
+        },10000);
+
     }
 }
