@@ -23,7 +23,6 @@ public class eventAddDialog extends AppCompatDialogFragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-
         try {
             listener= (eventAddListener) context;
         } catch (ClassCastException e) {

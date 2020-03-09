@@ -26,8 +26,8 @@ public class HomePageActivity extends AppCompatActivity {
     DatabaseReference Reff;
     DrawerLayout drawerLayout;
     TextView t;
-    Button B;
     View v;
+   // Button B;
     String Enroll;
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -69,8 +69,14 @@ public class HomePageActivity extends AppCompatActivity {
                 return false;
             }
         });
-        t= findViewById(R.id.TextViewName);
-        B= findViewById(R.id.buttonMap);
+        t=findViewById(R.id.TextViewName);
+
+
+
+
+
+
+//        B= findViewById(R.id.buttonMap);
 //        Intent intent= getIntent();
 //        message = intent.getStringExtra("message");
         message = pref.getString("Enrolment","0001");

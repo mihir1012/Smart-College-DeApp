@@ -40,6 +40,8 @@ public class AboutInfo extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    TextView[] allStdInfoText= new TextView[8];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,15 @@ public class AboutInfo extends AppCompatActivity {
         //setContentView(navigation_menu);
         Relative = findViewById(R.id.RelativeIfo);
         AboutName = findViewById(R.id.textViewNameAbout);
+
+        allStdInfoText[0]= findViewById(R.id.TextViewName);
+        allStdInfoText[1]= findViewById(R.id.showEnrollNo);
+        allStdInfoText[2]= findViewById(R.id.showName);
+        allStdInfoText[3]= findViewById(R.id.showNumber);
+        allStdInfoText[4]= findViewById(R.id.showEmail);
+        allStdInfoText[5]= findViewById(R.id.showBranch);
+        allStdInfoText[6]= findViewById(R.id.showYear);
+        allStdInfoText[7]= findViewById(R.id.showAOI);
 
         pref = getSharedPreferences ("myPreferences", MODE_PRIVATE);
         if (!pref.getBoolean("LoggedIn", false)) {
@@ -82,6 +93,8 @@ public class AboutInfo extends AppCompatActivity {
                         EnrollName = dataSnapshot.child("fullNameStudent").getValue().toString();
                         Enroll = dataSnapshot.child("enrolmentStudent").getValue().toString();
                         AboutName.setText(EnrollName);
+
+
                     }
 
                     @Override

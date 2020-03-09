@@ -74,13 +74,13 @@ public class Eventinfo extends AppCompatActivity implements eventAddDialog.event
                     r.getDisplayMetrics()
             );
             params.setMargins(px,0,0,0);
+            params.addRule(RelativeLayout.CENTER_HORIZONTAL);
             img.setLayoutParams(params);
+
             relEvent.addView(img);
         }
         createList();
-
         recyclerBuild();
-
     }
     private void OpenDialog(){
         eventAddDialog eventDialog =new eventAddDialog();

@@ -24,7 +24,6 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.eventViewHol
     @Override
     public void onBindViewHolder(@NonNull eventViewHolder holder, int position) {
         eventDesc eventDesc = mEventDesc.get(position);
-
         holder.textViewName.setText(eventDesc.getEventName());
         holder.textViewDate.setText(eventDesc.getEventDate());
         holder.textViewDesc.setText(eventDesc.getEventDescription());
@@ -43,6 +42,8 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.eventViewHol
             textViewName = itemView.findViewById(R.id.textViewEventName);
             textViewDate = itemView.findViewById(R.id.textViewEventDate);
             textViewDesc = itemView.findViewById(R.id.textViewEventDesc);
+            //Toast.makeText(this, "enter the data", Toast.LENGTH_SHORT).show();
+
         }
     }
 

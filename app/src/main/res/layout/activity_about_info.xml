@@ -47,16 +47,76 @@
                     android:textSize="30sp"
                     android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/buttonLogin"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="121dp"
-                    android:layout_marginTop="363dp"
-                    android:onClick="LetsLogout"
-                    android:text="Button" />
+                    android:layout_below="@+id/textViewNameAbout"
+                    android:layout_marginStart="100dp"
+                    android:textColor="@android:color/black"
+                    android:id="@+id/showEnrollNo"
+                    android:layout_marginTop="50dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/showEnrollNo"
+                    android:layout_marginStart="100dp"
+                    android:layout_alignParentStart="true"
+                    android:textColor="@android:color/black"
+                    android:id="@+id/showName"
+                    android:layout_marginTop="50dp"
+                    />
+                <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/showName"
+                android:layout_marginStart="100dp"
+                android:layout_alignParentStart="true"
+                android:textColor="@android:color/black"
+                android:id="@+id/showNumber"
+                android:layout_marginTop="50dp"
+                />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/showNumber"
+                    android:layout_marginStart="100dp"
+                    android:layout_alignParentStart="true"
+                    android:textColor="@android:color/black"
+                    android:id="@+id/showEmail"
+                    android:layout_marginTop="50dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/showEmail"
+                    android:layout_marginStart="100dp"
+                    android:layout_alignParentStart="true"
+                    android:textColor="@android:color/black"
+                    android:id="@+id/showBranch"
+                    android:layout_marginTop="50dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/showBranch"
+                    android:layout_marginStart="100dp"
+                    android:layout_alignParentStart="true"
+                    android:textColor="@android:color/black"
+                    android:id="@+id/showYear"
+                    android:layout_marginTop="50dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/showYear"
+                    android:layout_marginStart="100dp"
+                    android:layout_alignParentStart="true"
+                    android:textColor="@android:color/black"
+                    android:id="@+id/showAOI"
+                    android:layout_marginTop="50dp"
+                    />
 
             </RelativeLayout>
   </RelativeLayout>
