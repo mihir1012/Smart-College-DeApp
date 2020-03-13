@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
@@ -32,6 +33,7 @@ public class RegistrationActivity extends AppCompatActivity {
     Spinner myspinner;
     EditText year;
     EditText AOI;
+    SharedPreferences pref;
     DatabaseReference reff,reference;
     String branchString;
     Button b1;
@@ -73,11 +75,13 @@ public class RegistrationActivity extends AppCompatActivity {
         Stuinfo = new StudentInformation();
         reff = FirebaseDatabase.getInstance().getReference().child("StudentInfo");
         reference = FirebaseDatabase.getInstance().getReference().child("LoginStudent");//.child(Enroll.getText().toString());
+
+        pref=getSharedPreferences("myPreferences",MODE_PRIVATE);
     }
 
     public void RegisterHello(View view) {
         Toast.makeText(RegistrationActivity.this,"Hello",Toast.LENGTH_SHORT).show();
-        Long Eaa = Long.parseLong(Enroll.getText().toString());
+        Long Eaa = Long.parseLong(Enroll.getText().toString().trim());
         Stuinfo.setEnrolmentStudent(Eaa);
         Stuinfo.setFullNameStudent(NameStu.getText().toString().trim());
         Stuinfo.setEmailStudent(Email.getText().toString().trim());
@@ -91,19 +95,16 @@ public class RegistrationActivity extends AppCompatActivity {
         logStu.setPasswordStudent(Pass.getText().toString().trim());
         logStu.setNameStudent(NameStu.getText().toString().trim());
         reference.child(Enroll.getText().toString().trim()).setValue(logStu);
-        Toast.makeText(RegistrationActivity.this,"Registration Successful",Toast.LENGTH_SHORT).show();
 
-        Handler handler= new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if(!Enroll.equals("") && !NameStu.equals("") && !Email.equals("") && !year.equals("") && !branchString.equals("") && !Contact.equals("") && !AOI.equals("") ) {
-                    Intent homepageintent = new Intent(getApplicationContext(), HomePageActivity.class);
-                    startActivity(homepageintent);
-                    finish();
-                }
-            }
-        },10000);
+        SharedPreferences.Editor edit= pref.edit();
+        edit.putString("Enrolment",Enroll.getText().toString().trim());
+        edit.putBoolean("LoggedIn",true);
+        edit.apply();
+
+        Toast.makeText(RegistrationActivity.this,"Registration Successful",Toast.LENGTH_SHORT).show();
+        Intent homepageintent = new Intent(getApplicationContext(), HomePageActivity.class);
+        startActivity(homepageintent);
+        finish();
 
     }
 }

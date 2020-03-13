@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -60,7 +61,7 @@ public class HomePageActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = pref.edit();
                         editor.putBoolean("LoggedIn", false);
                         editor.putString("Enrolment", "0");
-                        editor.commit();
+                        editor.apply();
                         Intent Loginintent = new Intent(HomePageActivity.this, MainActivity.class);
                         startActivity(Loginintent);
                         finish();
@@ -83,36 +84,31 @@ public class HomePageActivity extends AppCompatActivity {
         }
         else {
             Reff = FirebaseDatabase.getInstance().getReference().child("LoginStudent").child(message);
-            Log.i("ERROR*",message);
+     //       Log.i("ERROR*", message);
             Reff.addValueEventListener(new ValueEventListener() {
-
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    Enroll = dataSnapshot.child("nameStudent").getValue().toString();
+                    Enroll = (String) dataSnapshot.child("nameStudent").getValue();
                     t.setText(Enroll);
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
                 }
             });
         }
-
-
     }
 
     public void launchmap(View v) {
-
     }
 
     public void GotoEvents(View v){
         Intent eventintent = new Intent(HomePageActivity.this, Eventinfo.class);
-        eventintent.putExtra("login",message);
+        //eventintent.putExtra("login",message);
         startActivity(eventintent);
     }
     public void GotoInfo(View v){
         Intent infointent = new Intent(HomePageActivity.this, AboutInfo.class);
-        infointent.putExtra("message",Enroll);
+      ///  infointent.putExtra("message",Enroll);
         startActivity(infointent);
     }
     public void GotoClubs(View v){

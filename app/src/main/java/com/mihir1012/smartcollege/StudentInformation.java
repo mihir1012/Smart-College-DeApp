@@ -8,6 +8,7 @@ public class StudentInformation {
     private String Branch;
     private Integer yearStudent;
     private String AreaofInterest;
+
     public String getEmailStudent() {
         return EmailStudent;
     }

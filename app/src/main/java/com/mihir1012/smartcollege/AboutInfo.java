@@ -61,6 +61,7 @@ public class AboutInfo extends AppCompatActivity {
         allStdInfoText[5]= findViewById(R.id.showAOI);
 
         pref = getSharedPreferences ("myPreferences", MODE_PRIVATE);
+
         if (!pref.getBoolean("LoggedIn", false)) {
             Intent Loginintent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(Loginintent);
@@ -126,7 +127,7 @@ public class AboutInfo extends AppCompatActivity {
                             return true;
                         case R.id.nav_Home:
                             Intent homeintent = new Intent(AboutInfo.this, HomePageActivity.class);
-                            homeintent.putExtra("message", Enroll);
+                            //homeintent.putExtra("message", Enroll);
                             startActivity(homeintent);
                             return true;
                         case R.id.nav_Logout:
@@ -134,7 +135,7 @@ public class AboutInfo extends AppCompatActivity {
                             SharedPreferences.Editor editor = pref.edit();
                             editor.putBoolean("LoggedIn", false);
                             editor.putString("Enrolment", "0");
-                            editor.commit();
+                            editor.apply();
                             Intent Loginintent = new Intent(AboutInfo.this, MainActivity.class);
                             startActivity(Loginintent);
                             finish();
@@ -151,7 +152,7 @@ public class AboutInfo extends AppCompatActivity {
         SharedPreferences.Editor editor = pref.edit();
         editor.putBoolean("LoggedIn", false);
         editor.putString("Enrolment", "0");
-        editor.commit();
+        editor.apply();
         Intent intent = new Intent(AboutInfo.this, MainActivity.class);
         startActivity(intent);
         finish();

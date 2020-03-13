@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
@@ -38,6 +39,7 @@ public class Eventinfo extends AppCompatActivity implements eventAddDialog.event
     private RecyclerView.LayoutManager layoutManager;
     private String login;
     private RelativeLayout relEvent;
+    SharedPreferences pref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,8 +50,10 @@ public class Eventinfo extends AppCompatActivity implements eventAddDialog.event
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         reff = FirebaseDatabase.getInstance().getReference().child("Events");
 
-        Intent intent = getIntent();
-        login = intent.getStringExtra("login");
+//        Intent intent = getIntent();
+//        login = intent.getStringExtra("login");
+        pref=getSharedPreferences("myPreferences",MODE_PRIVATE);
+        login = pref.getString("Enrolment","0001");
 
         if(login.substring(0,1).equals("p")) {
             relEvent = findViewById(R.id.linearEvent);
