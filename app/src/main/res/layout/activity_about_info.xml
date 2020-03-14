@@ -39,10 +39,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="30sp"
-                    android:layout_marginTop="70sp"
-                    android:fontFamily="@font/audiowide"
-                    android:text="Mihir Mehta"
+                    android:layout_marginStart="15sp"
+                    android:layout_marginTop="100sp"
                     android:textColor="#000000"
                     android:textSize="30sp"
                     android:textStyle="bold" />
@@ -50,73 +48,73 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
                     android:layout_below="@+id/textViewNameAbout"
-                    android:layout_marginStart="100dp"
+                    android:layout_marginStart="15sp"
                     android:textColor="@android:color/black"
                     android:id="@+id/showEnrollNo"
-                    android:layout_marginTop="50dp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/showEnrollNo"
-                    android:layout_marginStart="100dp"
-                    android:layout_alignParentStart="true"
-                    android:textColor="@android:color/black"
-                    android:id="@+id/showName"
-                    android:layout_marginTop="50dp"
-                    />
+                    android:layout_marginTop="30sp"
+                    android:textSize="30sp"
+                    android:textStyle="bold"/>
+
                 <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/showName"
-                android:layout_marginStart="100dp"
+                android:layout_below="@+id/showEnrollNo"
+                android:layout_marginStart="15sp"
                 android:layout_alignParentStart="true"
                 android:textColor="@android:color/black"
                 android:id="@+id/showNumber"
-                android:layout_marginTop="50dp"
-                />
+                android:layout_marginTop="30sp"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/showNumber"
-                    android:layout_marginStart="100dp"
+                    android:layout_marginStart="15sp"
                     android:layout_alignParentStart="true"
                     android:textColor="@android:color/black"
                     android:id="@+id/showEmail"
-                    android:layout_marginTop="50dp"
-                    />
+                    android:layout_marginTop="30sp"
+                    android:textSize="30sp"
+                    android:textStyle="bold"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/showEmail"
-                    android:layout_marginStart="100dp"
+                    android:layout_marginStart="15sp"
                     android:layout_alignParentStart="true"
                     android:textColor="@android:color/black"
                     android:id="@+id/showBranch"
-                    android:layout_marginTop="50dp"
-                    />
+                    android:layout_marginTop="30sp"
+                    android:textSize="30sp"
+                    android:textStyle="bold"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/showBranch"
-                    android:layout_marginStart="100dp"
+                    android:layout_marginStart="15sp"
                     android:layout_alignParentStart="true"
                     android:textColor="@android:color/black"
                     android:id="@+id/showYear"
-                    android:layout_marginTop="50dp"
-                    />
+                    android:layout_marginTop="30sp"
+                    android:textSize="30sp"
+                    android:textStyle="bold"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/showYear"
-                    android:layout_marginStart="100dp"
+                    android:layout_marginStart="15sp"
                     android:layout_alignParentStart="true"
                     android:textColor="@android:color/black"
                     android:id="@+id/showAOI"
-                    android:layout_marginTop="50dp"
-                    />
+                    android:layout_marginTop="30sp"
+                    android:textSize="30sp"
+                    android:textStyle="bold"/>
 
             </RelativeLayout>
   </RelativeLayout>

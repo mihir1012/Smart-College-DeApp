@@ -2,6 +2,8 @@ package com.mihir1012.smartcollege;
 
 public class LoginStudent {
     private Long EnrolStudent;
+    private String NameStudent;
+    private String PasswordStudent;
 
     public Long getEnrolStudent() {
         return EnrolStudent;
@@ -27,6 +29,4 @@ public class LoginStudent {
         PasswordStudent = passwordStudent;
     }
 
-    private String NameStudent;
-    private String PasswordStudent;
 }
