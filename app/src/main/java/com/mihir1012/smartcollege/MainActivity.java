@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity {
     EditText EnrolmentNo;
@@ -80,6 +81,33 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "Login successful", Toast.LENGTH_SHORT).show();
                 finish();
             }
+            else if(EnrolmentNo.getText().toString().contains("p")){
+                Reff = FirebaseDatabase.getInstance().getReference().child("ProfInfo");
+                Reff.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot ds : dataSnapshot.getChildren())
+                            if (EnrolmentNo.getText().toString().equals(ds.child("profID").getValue().toString())) {
+                                if (Pass.getText().toString().equals(ds.child("profPass").getValue().toString())) {
+                                    SharedPreferences.Editor editor = pref.edit();
+                                    editor.putBoolean("LoggedIn",true);
+                                    editor.putString("Enrolment", EnrolmentNo.getText().toString());
+                                    editor.commit();
+                                    Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
+//                                intent.putExtra("message", EnrolmentNo.getText().toString());
+                                    startActivity(intent);
+                                    Toast.makeText(getBaseContext(), "Login successful", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                            }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
             else{
                 Reff.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -107,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
 //                                intent.putExtra("message", EnrolmentNo.getText().toString());
                                 startActivity(intent);
                                 Toast.makeText(getBaseContext(), "Login successful", Toast.LENGTH_SHORT).show();
+                                FirebaseMessaging.getInstance().subscribeToTopic("eventupdated");
                                 finish();
                             }
                             else{

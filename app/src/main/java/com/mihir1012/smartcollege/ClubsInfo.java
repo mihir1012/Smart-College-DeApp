@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.media.Image;
 import android.os.Bundle;
@@ -26,7 +27,7 @@ ClubsInfo extends AppCompatActivity implements eventAddDialog.eventAddListener {
     RecyclerView recyclerView;
     Toolbar toolbar;
    // DatabaseReference reff;
-
+    private SharedPreferences pref;
     ImageView img;
     private RelativeLayout relclub;
 
@@ -39,32 +40,34 @@ ClubsInfo extends AppCompatActivity implements eventAddDialog.eventAddListener {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        relclub = findViewById(R.id.ClubsRel);
-        img= new ImageView(this);
-        img.setImageResource(R.drawable.ic_launcher_round_add_foreground);
-        img.setMinimumHeight(50);
-        img.setMaxWidth(50);
-        img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                OpenDialog();
-            }
-        });
-        RelativeLayout.LayoutParams  params = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT
+        pref = getSharedPreferences("",MODE_PRIVATE);
 
-        );
-        Resources r = this.getResources();
-        int px = (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                150,
-                r.getDisplayMetrics()
-        );
-        params.setMargins(px,50,0,0);
-        params.addRule(RelativeLayout.CENTER_HORIZONTAL);
-        img.setLayoutParams(params);
-        relclub.addView(img);
+        relclub = findViewById(R.id.ClubsRel);
+        if (pref.getString("","").contains("p")) {
+            img= new ImageView(this);
+            img.setImageResource(R.drawable.ic_launcher_round_add_foreground);
+            img.setMinimumHeight(50);
+            img.setMaxWidth(50);
+            img.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    OpenDialog();
+                }
+            });
+            RelativeLayout.LayoutParams  params = new RelativeLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.WRAP_CONTENT,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT );
+            Resources r = this.getResources();
+            int px = (int) TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    150,
+                    r.getDisplayMetrics()
+            );
+            params.setMargins(px,50,0,0);
+            params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+            img.setLayoutParams(params);
+            relclub.addView(img);
+        }
         createlist();
         recyclerBuild();
     }

@@ -2,6 +2,11 @@ package com.mihir1012.smartcollege;
 
 public class eventDesc {
     private String eventName,eventDate,eventDescription;
+
+    public eventDesc(){
+
+    }
+
     public eventDesc(String eventName,String eventDate, String eventDescription){
         this.eventName=eventName;
         this.eventDate=eventDate;

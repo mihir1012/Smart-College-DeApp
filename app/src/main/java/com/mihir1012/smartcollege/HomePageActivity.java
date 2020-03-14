@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class HomePageActivity extends AppCompatActivity {
     DatabaseReference Reff;
@@ -61,6 +62,7 @@ public class HomePageActivity extends AppCompatActivity {
                         editor.putBoolean("LoggedIn", false);
                         editor.putString("Enrolment", "0");
                         editor.commit();
+                        FirebaseMessaging.getInstance().unsubscribeFromTopic("eventupdated");
                         Intent Loginintent = new Intent(HomePageActivity.this, MainActivity.class);
                         startActivity(Loginintent);
                         finish();

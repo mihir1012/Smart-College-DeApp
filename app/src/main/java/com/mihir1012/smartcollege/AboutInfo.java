@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static com.mihir1012.smartcollege.R.menu.navigation_menu;
@@ -130,6 +131,7 @@ public class AboutInfo extends AppCompatActivity {
                             editor.putBoolean("LoggedIn", false);
                             editor.putString("Enrolment", "0");
                             editor.commit();
+                            FirebaseMessaging.getInstance().unsubscribeFromTopic("EventUpdated");
                             Intent Loginintent = new Intent(AboutInfo.this, MainActivity.class);
                             startActivity(Loginintent);
                             finish();
@@ -140,17 +142,7 @@ public class AboutInfo extends AppCompatActivity {
             });
         }
     }
-    public void LetsLogout (View view)
-    {
-        pref = getSharedPreferences("myPreferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putBoolean("LoggedIn", false);
-        editor.putString("Enrolment", "0");
-        editor.commit();
-        Intent intent = new Intent(AboutInfo.this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
+
     private void SetupToolbar()
     {
         drawerLayout = (DrawerLayout) findViewById(R.id.DrawerLayoutAboutInfo);

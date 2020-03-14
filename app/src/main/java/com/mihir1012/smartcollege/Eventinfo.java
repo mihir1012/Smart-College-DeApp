@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,18 +22,26 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Eventinfo extends AppCompatActivity implements eventAddDialog.eventAddListener {
     ArrayList<eventDesc> eventList;
     Toolbar toolbar;
-    DatabaseReference reff;
+    private FirebaseFirestore db;
+    private CollectionReference dbEvents;
     private RecyclerView recyclerView;
     private eventAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -46,7 +55,8 @@ public class Eventinfo extends AppCompatActivity implements eventAddDialog.event
         toolbar.setTitle("Events");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        reff = FirebaseDatabase.getInstance().getReference().child("Events");
+        db = FirebaseFirestore.getInstance();
+        dbEvents = db.collection("Events");
 
         Intent intent = getIntent();
         login = intent.getStringExtra("login");
@@ -89,16 +99,22 @@ public class Eventinfo extends AppCompatActivity implements eventAddDialog.event
 
     private void createList(){
         eventList = new ArrayList<>();
-        reff.addListenerForSingleValueEvent(new ValueEventListener() {
+
+        dbEvents.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot data : dataSnapshot.getChildren()){
-                    eventList.add(new eventDesc(data.child("eventName").getValue().toString(),data.child("eventDate").getValue().toString(),data.child("eventDescription").getValue().toString()));
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for(QueryDocumentSnapshot documentSnapshot :task.getResult()){
+                        eventList.add( documentSnapshot.toObject(eventDesc.class));
+//                        Log.e("TAG ",documentSnapshot.toObject(eventDesc.class).toString());
+                    }
+
+                    mAdapter.notifyDataSetChanged();
                 }
-                mAdapter.notifyDataSetChanged();
             }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) { }});
+        });
+
+
     }
 
     private void recyclerBuild(){
@@ -113,7 +129,9 @@ public class Eventinfo extends AppCompatActivity implements eventAddDialog.event
 
     @Override
     public void getEventInfo(String EventName, String EventDate, String EventDesc) {
-        reff.child(EventDate).setValue(new eventDesc(EventName,EventDate,EventDesc));
+
+        dbEvents.add(new eventDesc(EventName,EventDate,EventDesc));
+
         eventList.add(new eventDesc(EventName,EventDate,EventDesc));
         mAdapter.notifyDataSetChanged();
     }

@@ -41,8 +41,7 @@
             android:layout_marginTop="-3dp"
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="3dp"
-            android:background="#FFFFFF"
-            android:onClick="@string/menu_slideshow">
+            android:background="#FFFFFF">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/clubsrecyclerview"
