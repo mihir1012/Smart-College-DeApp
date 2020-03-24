@@ -56,7 +56,6 @@ public class AboutInfo extends AppCompatActivity {
 
         allStdInfoText[0]= findViewById(R.id.TextViewName);
         allStdInfoText[1]= findViewById(R.id.showEnrollNo);
-        allStdInfoText[2]= findViewById(R.id.showName);
         allStdInfoText[3]= findViewById(R.id.showNumber);
         allStdInfoText[4]= findViewById(R.id.showEmail);
         allStdInfoText[5]= findViewById(R.id.showBranch);
@@ -94,8 +93,6 @@ public class AboutInfo extends AppCompatActivity {
                         EnrollName = dataSnapshot.child("fullNameStudent").getValue().toString();
                         Enroll = dataSnapshot.child("enrolmentStudent").getValue().toString();
                         AboutName.setText(EnrollName);
-
-
                     }
 
                     @Override
