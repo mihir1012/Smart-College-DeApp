@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor= pref.edit();
                 editor.putBoolean("LoggedIn",true);
                 editor.putString("Enrolment",EnrolmentNo.getText().toString());
-                editor.commit();
+                editor.apply();
                 Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
 //                intent.putExtra("message", EnrolmentNo.getText().toString());
                 startActivity(intent);
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                                 SharedPreferences.Editor editor= pref.edit();
                                 editor.putBoolean("LoggedIn",true);
                                 editor.putString("Enrolment",EnrolmentNo.getText().toString());
-                                editor.commit();
+                                editor.apply();
                                 Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
 //                                intent.putExtra("message", EnrolmentNo.getText().toString());
                                 startActivity(intent);

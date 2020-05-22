@@ -16,13 +16,15 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.eventViewHol
     @NonNull
     @Override
     public eventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.individual_event_card,parent,false);
-        eventViewHolder evh =new eventViewHolder(v);
+
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.individual_event_card,parent,false);
+            eventViewHolder evh =new eventViewHolder(v);
         return evh;
     }
 
     @Override
     public void onBindViewHolder(@NonNull eventViewHolder holder, int position) {
+
         eventDesc eventDesc = mEventDesc.get(position);
         holder.textViewName.setText(eventDesc.getEventName());
         holder.textViewDate.setText(eventDesc.getEventDate());

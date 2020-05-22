@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "975122914949",
+    "firebase_url": "https://smart-scet.firebaseio.com",
+    "project_id": "smart-scet",
+    "storage_bucket": "smart-scet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975122914949:android:46bb26cf2b76e2a2",
+        "android_client_info": {
+          "package_name": "com.mihir1012.smartcollege"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975122914949-n020j18i92q00jnqc7469dth5epk9j8k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mihir1012.smartcollege",
+            "certificate_hash": "26bfd171da1f80545096cb96fded3e7b63a5a86d"
+          }
+        },
+        {
+          "client_id": "975122914949-eqi7gaisf9tnmq6qll7bcmsv119bkd17.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKq2-un4a5cdlvnguwlqDISlL8k-JYc5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975122914949-eqi7gaisf9tnmq6qll7bcmsv119bkd17.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

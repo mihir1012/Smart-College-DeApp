@@ -12,8 +12,12 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,AllowBackup">
 
-        <activity android:name=".AboutDev"></activity>
-        <activity android:name=".SettingsActivity" />
+        <activity
+            android:name=".AboutDev"
+            android:parentActivityName=".HomePageActivity" />
+        <activity
+            android:name=".SettingsActivity"
+            android:parentActivityName=".HomePageActivity"/>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">

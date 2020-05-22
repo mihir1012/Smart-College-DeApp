@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
@@ -28,7 +29,6 @@ public class HomePageActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     TextView t;
     View v;
-   // Button B;
     String Enroll;
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -47,12 +47,15 @@ public class HomePageActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch  (menuItem.getItemId()){
                     case R.id.home_menu:
+                        drawerLayout.closeDrawers();
                         return true;
                     case R.id.about_menu:
+                        drawerLayout.closeDrawers();
                         Intent Aboutintent = new Intent(HomePageActivity.this,AboutDev.class);
                         startActivity(Aboutintent);
                         return true;
                     case R.id.setting_menu:
+                        drawerLayout.closeDrawers();
                         Intent Settingintent = new Intent(HomePageActivity.this,SettingsActivity.class);
                         startActivity(Settingintent);
                         return true;
@@ -61,7 +64,7 @@ public class HomePageActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = pref.edit();
                         editor.putBoolean("LoggedIn", false);
                         editor.putString("Enrolment", "0");
-                        editor.commit();
+                        editor.apply();
                         FirebaseMessaging.getInstance().unsubscribeFromTopic("eventupdated");
                         Intent Loginintent = new Intent(HomePageActivity.this, MainActivity.class);
                         startActivity(Loginintent);
@@ -72,8 +75,6 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
         t=findViewById(R.id.TextViewName);
-
-
 
 
 

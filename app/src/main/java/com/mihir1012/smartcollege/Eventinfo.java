@@ -97,7 +97,7 @@ public class Eventinfo extends AppCompatActivity implements eventAddDialog.event
         recyclerBuild();
     }
     private void OpenDialog(){
-        eventAddDialog eventDialog =new eventAddDialog();
+        eventAddDialog eventDialog =new eventAddDialog(0);
         eventDialog.show(getSupportFragmentManager(),"eventDialog");
     }
 
@@ -110,7 +110,7 @@ public class Eventinfo extends AppCompatActivity implements eventAddDialog.event
                 if(task.isSuccessful()){
                     for(QueryDocumentSnapshot documentSnapshot :task.getResult()){
                         eventList.add( documentSnapshot.toObject(eventDesc.class));
-//                        Log.e("TAG ",documentSnapshot.toObject(eventDesc.class).toString());
+ //                       Log.e("TAG ",documentSnapshot.toObject(eventDesc.class).toString());
                     }
 
                     mAdapter.notifyDataSetChanged();
